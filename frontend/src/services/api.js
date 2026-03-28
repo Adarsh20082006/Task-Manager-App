@@ -16,7 +16,7 @@ export const getTasks = async () => {
   } catch (error) {
     console.error('Error fetching tasks:', error);
     throw error;
-  } 
+  }  
 };
 
 export const createTask = async (taskData) => {
