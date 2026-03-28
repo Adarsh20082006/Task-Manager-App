@@ -7,5 +7,5 @@ class Task(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(26), unique=True, nullable=False)
     description = Column(String(50), nullable=True)
-    status = Column(String(10), default="Pending") # Pending, Completed
+    status = Column(String(10), default="pending") # pending, completed
     created_at = Column(DateTime, default=func.now())
