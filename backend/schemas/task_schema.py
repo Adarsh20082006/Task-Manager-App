@@ -18,7 +18,7 @@ class TaskCreate(TaskBase):
 class TaskResponse(TaskBase):
     id: int = Field(..., description="Unique ID of the task")
     status: TaskStatus = Field(default=TaskStatus.PENDING, description="Status of the task")
-    created_at: datetime = Field(default_factory=datetime.timezone.utcnow, description="Created time")
+    created_at: datetime = Field(default_factory=datetime.utcnow, description="Created time")
     class Config:
         orm_mode = True
 
