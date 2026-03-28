@@ -7,10 +7,10 @@ app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-@app.get("/db-test")#just test db connection
+@app.get("/db-test")    #just testing db connection
 def db_test():
     with SessionLocal() as db:
         result = db.execute(text("SELECT 1")).fetchone()
         return {"db_connection": "successful" if result else "failed"}
 
-app.include_router(task_routes.router)
+app.include_router(task_routes.router) #/tasks/.. routes handler
