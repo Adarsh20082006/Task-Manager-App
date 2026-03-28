@@ -1,12 +1,13 @@
 import React from "react";
 import { updateTask, deleteTask } from "../services/api";
 
-const EachTask = ({ task }) => {
+const EachTask = ({ task, refreshTasks }) => {
     console.log(task);
     const taskCompletedFunc = async () => {
         try {
             const response = await updateTask(task.id, { ...task, status: "completed" });
             console.log("Task updated successfully:", response);
+            refreshTasks(); 
         } catch (error) {
             console.error("Error updating task:", error);
         }   
@@ -16,6 +17,7 @@ const EachTask = ({ task }) => {
         try {
             const response = await deleteTask(task.id);
             console.log("Task deleted successfully:", response);
+            refreshTasks(); 
         }
         catch (error) {
             console.error("Error deleting task:", error);
@@ -31,7 +33,7 @@ const EachTask = ({ task }) => {
         
         <div>
            
-            {task.status === "Pending" && (
+            {task.status === "pending" && (
                 <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mr-2" onClick={taskCompletedFunc}>Completed</button>
             )}  
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onClick={deleteTaskFunc}>Delete</button>
