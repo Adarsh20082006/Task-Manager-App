@@ -5,10 +5,10 @@ import TasksList from "./TasksList";
 import CreateTask from "./CreateTask";
 
 const Dashboard = () => {
-  const [createTaskVisible, setCreateTaskVisible] = useState(false);
-    
+    const [createTaskVisible, setCreateTaskVisible] = useState(false);
     const [pendingTasks, setPendingTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
+    
     const fetchTasks = async () => {
         try {
             const response = await getTasks();
