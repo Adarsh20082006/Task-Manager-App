@@ -6,13 +6,19 @@ import CreateTask from "./CreateTask";
 
 const Dashboard = () => {
   const [createTaskVisible, setCreateTaskVisible] = useState(false);
-    const [tasks, setTasks] = useState([]);
+    
+    const [pendingTasks, setPendingTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState([]);
     const fetchTasks = async () => {
         try {
             const response = await getTasks();
-            setTasks(response);
+            console.log("Tasks fetched successfully:", response);
+            setPendingTasks(response.filter(task => task.status !== "completed").sort((a, b) => b.created_at - a.created_at));
+            setCompletedTasks(response.filter(task => task.status === "completed").sort((a, b) => b.created_at - a.created_at));
         } catch (error) {
             console.error("Error fetching tasks:", error);
+        } finally {
+            setCreateTaskVisible(false);
         }
     };
   return (
@@ -26,7 +32,7 @@ const Dashboard = () => {
             </button>
         </div>
         {createTaskVisible && <CreateTask refreshTasks={fetchTasks} />}
-        <TasksList fetchTasks={fetchTasks} tasks={tasks} />
+        <TasksList fetchTasks={fetchTasks} pendingTasks={pendingTasks} completedTasks={completedTasks} />
     </div>
     );
 
