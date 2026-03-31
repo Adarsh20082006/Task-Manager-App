@@ -31,7 +31,7 @@ const EachTask = ({ task, refreshTasks }) => {
         <p className="text-gray-600">{task.description}</p>
         <p className="text-sm text-gray-500">Status: {task.status.charAt(0).toUpperCase() + task.status.slice(1)}</p>
 
-        <p className="text-xs text-gray-400">Created: {new Date(task.created_at).toLocaleString()}</p>
+        <p className="text-xs text-gray-400">Created at: {new Date(task.created_at).toLocaleString()}</p>
         </div>
         
         <div>

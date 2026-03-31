@@ -16,10 +16,11 @@ app.add_middleware(
 
 Base.metadata.create_all(bind=engine)
 
-@app.get("/db-test")    #just testing db connection
+@app.get("/")    #just testing db connection
 def db_test():
     with SessionLocal() as db:
         result = db.execute(text("SELECT 1")).fetchone()
+        print("Database connection test result:", result)
         return {"db_connection": "successful" if result else "failed"}
 
 app.include_router(task_routes.router) #/tasks/.. routes handler
