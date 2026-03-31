@@ -54,5 +54,5 @@ npm run dev
 
 ### Screenshots
 
-![app](frontend\public\image-1.png)
-![api](frontend\public\image.png)
+![app](frontend/public/image-1.png)
+![api](frontend/public/image.png)
