@@ -52,3 +52,7 @@ npm run dev
 - Backend: FastAPI
 - Database: MySQL
 
+### Screenshots
+
+![app](frontend\public\image-1.png)
+![api](frontend\public\image.png)
