@@ -27,7 +27,7 @@ const Dashboard = () => {
             <h1 className="text-4xl font-bold mb-4 text-center">Task Manager</h1>
         </div>
         <div className="content flex justify-end mb-6">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " onClick={() => setCreateTaskVisible(!createTaskVisible)}>
+            <button className="bg-blue-500 hover:bg-blue-700 cursor-pointer text-white font-bold py-2 px-4 rounded " onClick={() => setCreateTaskVisible(!createTaskVisible)}>
                 {createTaskVisible ? "Close" : "Create Task"}
             </button>
         </div>

@@ -27,7 +27,6 @@ const CreateTask = ({ refreshTasks }) => {
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
                         Task Title
-
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Enter task title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
@@ -38,7 +37,7 @@ const CreateTask = ({ refreshTasks }) => {
                     <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" placeholder="Enter task description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                 </div>
                 <div className="flex items-center">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-auto" type="submit" onClick={addTask}>
+                    <button className="bg-blue-500 hover:bg-blue-700 cursor-pointer text-white font-bold py-2 px-4 rounded m-auto" type="submit" onClick={addTask}>
                     Add Task
                 </button>
                 </div>
